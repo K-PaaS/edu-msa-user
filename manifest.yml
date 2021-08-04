@@ -1,9 +1,9 @@
 ---
 applications:
-- name: USER-MSA
+- name: edu-msa-user
   memory: 1024M
-  host: user-msa
-  path: ./target/USER-MSA-1.0.0.war
+  host: edu-msa-user
+  path: ./target/edu-msa-user-1.0.0.war
   buildpack: java_buildpack
 env:
   JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
