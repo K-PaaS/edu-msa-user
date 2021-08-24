@@ -57,6 +57,16 @@
 		WHERE
 			user_id = #{userId}
 	</select>
+	
+	<select id="checkLogin" parameterType="hashMap" resultType="hashMap">
+		SELECT	user_id 	AS userId
+			  , user_name 	AS userName
+		FROM TB_USER
+		WHERE
+			user_id = #{userId}
+		AND
+			user_passwd = password(#{userPasswd})
+	</select>
 
 	<insert id="postUser" parameterType="hashMap" useGeneratedKeys="true" keyProperty="userSeq">
 		INSERT INTO TB_USER

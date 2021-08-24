@@ -10,6 +10,8 @@ public interface UserService {
 	public List<Object> getUserList(Map<String, Object> paramMap) throws Exception;
 	
 	public List<Object> getUser(Map<String, Object> paramMap) throws Exception;
+	
+	public Map<String, Object> checkLogin(Map<String, Object> paramMap) throws Exception;
 
 	public int postUser(Map<String, Object> paramMap) throws Exception;
 

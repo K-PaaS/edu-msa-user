@@ -21,6 +21,9 @@ public class UserDAO extends CommonDAO {
 	public List<Object> getUser(Map<String, Object> paramMap) throws Exception {
 		return getSqlSession().selectList("paasta.msa.service.impl.UserMapper.getUser", paramMap);
 	}
+	public Map<String, Object> checkLogin(Map<String, Object> paramMap) throws Exception {
+		return getSqlSession().selectOne("paasta.msa.service.impl.UserMapper.checkLogin", paramMap);
+	}
 
 	public int postUser(Map<String, Object> paramMap) throws Exception {
 

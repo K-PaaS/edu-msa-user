@@ -27,6 +27,10 @@ public class UserServiceImpl implements UserService {
 	public List<Object> getUser(Map<String, Object> paramMap) throws Exception {
 		return userDAO.getUser(paramMap);
 	}
+	
+	public Map<String, Object> checkLogin(Map<String, Object> paramMap) throws Exception {
+		return userDAO.checkLogin(paramMap);
+	}
 
 	public int postUser(Map<String, Object> paramMap) throws Exception {
 		return userDAO.postUser(paramMap);

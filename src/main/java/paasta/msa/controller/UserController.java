@@ -114,6 +114,40 @@ public class UserController {
 
 		return result;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/user/checkLogin", method = RequestMethod.POST)
+	public Map<String, Object> checkLogin(HttpEntity<String> httpEntity) {
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		Map<String, Object> result = new HashMap<String, Object>();
+		Map<String, Object> userConunt = null;
+		Map<String, String> jsonMap = null;
+
+		try {
+			
+			
+			// parameter Setting
+			jsonMap = mapper.readValue(httpEntity.getBody(), Map.class);
+			paramMap.put("userId", jsonMap.get("userId"));
+			paramMap.put("userPasswd",jsonMap.get("userPasswd"));
+			
+			// select User
+			userConunt = userService.checkLogin(paramMap);
+			if (userConunt == null || userConunt.isEmpty()) {
+				throw new Exception("해당하는 사용자가 없습니다.");
+			}
+
+			result.put("result", "SUCCESS");
+			result.put("resultData", userConunt);
+		} catch (Exception e) {
+			result.put("result", "ERROR");
+			result.put("errMsg", e.getMessage());
+			e.printStackTrace();
+		}
+
+		return result;
+	}
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
