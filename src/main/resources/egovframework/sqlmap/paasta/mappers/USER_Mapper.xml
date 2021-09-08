@@ -48,9 +48,9 @@
 
 	<select id="getUser" parameterType="hashMap" resultType="hashMap">
 		SELECT
-				user_seq
-				, user_id
-				, user_name
+				user_seq	AS userSeq
+				, user_id	AS userId
+				, user_name	AS userName
 				, DATE_FORMAT(create_dt,'%Y-%m-%d %H:%i:%s')		AS createDt
 				, DATE_FORMAT(update_dt,'%Y-%m-%d %H:%i:%s')		AS updateDt
 		FROM TB_USER
