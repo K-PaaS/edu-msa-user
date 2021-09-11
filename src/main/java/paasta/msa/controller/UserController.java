@@ -193,11 +193,14 @@ public class UserController {
 
 		try {
 
+			System.out.println("paramMap : " + paramMap);
 			int insertCount = userService.postUser(paramMap);
+			System.out.println("insertCount : " + insertCount);
 			if (insertCount != 1) {
 				throw new Exception("사용자 생성에 실패하였습니다.");
 			}
 
+			System.out.println("insertCount : " + paramMap.get("userSeq"));
 			resultData.put("userSeq", paramMap.get("userSeq"));
 
 			result.put("result", "SUCCESS");
